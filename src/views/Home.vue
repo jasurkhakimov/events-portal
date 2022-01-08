@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Here is simple boilerplate of vue project with vue-router and vuex modular system!"/>
   </div>
 </template>
 
