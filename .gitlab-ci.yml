@@ -1,6 +1,4 @@
-image: docker:latest
-services:
-- docker:dind
+image: node:14-alpine
 
 stages:
 - build
@@ -8,5 +6,6 @@ stages:
 build:
   stage: build
   script:
-    - docker build --build-arg HTTP_PROXY="http://10.10.12.38:3128" --build-arg HTTPS_PROXY="http://10.10.12.38:3128" -t test/vueapp .
+    - npm install
+    - npm run build
 
