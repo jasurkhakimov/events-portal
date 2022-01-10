@@ -1,11 +1,10 @@
-image: node:14-alpine
-
+image: docker
+services:
+  - docker:dind
 stages:
-- build
-
-build:
-  stage: build
+  - deploy
+step-deploy-prod:
+  stage: deploy
   script:
-    - npm install
-    - npm run build
-
+    - docker build --build-arg HTTP_PROXY="http://10.10.12.38:3128" --build-arg HTTPS_PROXY="http://10.10.12.38:3128" -t test/vueapp .
+    - docker run -d -p 80:80 --rm --name todoapp test/vueapp
