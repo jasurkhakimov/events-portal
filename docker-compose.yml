@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  nginx:
+    image: test/vueapp
+    #network_mode: "host"
+    container_name: vueapp-test
+    ports:
+      - '2222:80'
