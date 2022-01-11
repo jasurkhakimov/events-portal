@@ -18,4 +18,6 @@ build-image:
 deploy-image:
   stage: deploy
   script:
-    - docker run -d -p 2222:80 --rm --name todoapp test/vueapp
+    - docker stop vueapp-test
+    - docker rm vueapp-test
+    - docker run -d -p 2222:80 --rm --name vueapp-test test/vueapp
