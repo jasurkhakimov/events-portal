@@ -15,10 +15,23 @@ build-image:
     - docker build --build-arg HTTP_PROXY="http://10.10.12.38:3128" --build-arg HTTPS_PROXY="http://10.10.12.38:3128" -t test/vueapp .
 
 deploy-image:
+  before_script:
+  - export HTTP_PROXY="http://10.10.12.38:3128"
+  - export HTTPS_PROXY="http://10.10.12.38:3128"
+  - export NO_PROXY=".noproxy.com,.noproxy2.com"
+  - env | grep PROXY
+  - apk add openssh-client
+  - eval $(ssh-agent -s)
+  - env | grep PROXY
+  - ssh-add <(echo "$SSH_PRIVATE_KEY")
+  #- echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
   stage: deploy
   image: docker/compose:latest
   script:
-    - docker-compose -H "ssh://user@10.10.12.99" up -d
+    - DOCKER_HOST="ssh://user@10.10.12.99" docker-compose up -d
+    #- docker-compose -H "ssh://user@10.10.12.99" up -d
     #- docker stop vueapp-test
     #- docker rm vueapp-test
     #- docker run -d -p 2222:80 --rm --name vueapp-test test/vueapp
