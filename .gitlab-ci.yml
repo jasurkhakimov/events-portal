@@ -6,12 +6,6 @@ variables:
   DOCKER_TLS_CERTDIR: "/certs"
 services:
   - docker:19.03.12-dind
-before_script:
-- docker info
-- apk update
-- apk upgrade
-- apk add python python-dev py-pip build-base
-- pip install docker-compose
 stages:
   - build
   - deploy
@@ -22,6 +16,7 @@ build-image:
 
 deploy-image:
   stage: deploy
+  image: docker/compose:latest
   script:
     - docker-compose up -d
     #- docker stop vueapp-test
