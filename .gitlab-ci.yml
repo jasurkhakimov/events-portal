@@ -30,4 +30,4 @@ deploy-image:
   stage: deploy
   image: docker/compose:latest
   script:
-    - DOCKER_HOST="ssh://user@10.10.12.99" docker-compose up -d
+    - docker-compose up -d
