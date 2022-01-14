@@ -1,9 +1,9 @@
 image: docker:19.03.12
-#variables:
+variables:
   #DOCKER_TLS_CERTDIR: ''
-  #DOCKER_HOST: tcp://10.10.12.67:2375
-  #DOCKER_DRIVER: overlay2
-  #DOCKER_TLS_CERTDIR: "/certs"
+  DOCKER_HOST: tcp://10.10.12.99:2375
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: "/certs"
 services:
   - docker:19.03.12-dind
 stages:
