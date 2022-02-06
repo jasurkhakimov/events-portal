@@ -7,7 +7,20 @@ const routes = [
   {
     path: '/',
     name: 'client-base',
-    component: () => import('@/views/client/layouts/BaseLayout.vue')
+    component: () => import('@/views/client/layouts/BaseLayout.vue'),
+    redirect: {name: 'client-main'},
+    children: [
+      {
+        path: 'main',
+        name: 'client-main',
+        component: () => import('@/views/client/main/MainPage.vue'),
+      },
+      {
+        path: 'settings',
+        name: 'client-settings',
+        component: () => import('@/views/client/settings/SettingsPage.vue'),
+      },
+    ]
   },
   {
     path: '/vuex-test',

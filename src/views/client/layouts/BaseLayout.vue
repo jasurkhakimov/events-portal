@@ -4,20 +4,22 @@
             <side-bar></side-bar>
         </div>
         <div class="client_content_wrapper">
+            <nav-bar></nav-bar>
             <router-view />
         </div>
     </div>
 </template>
 
 <script>
-import SideBar from '../components/SideBar.vue'
-    export default {
-  components: { SideBar },
-        name: 'BaseLayout'
-    }
+import NavBar from '../components/NavBar';
+import SideBar from "../components/SideBar";
+export default {
+    components: { SideBar, NavBar },
+    name: "BaseLayout",
+};
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .client_wrapper {
     display: flex;
     min-height: 100vh;
@@ -32,5 +34,7 @@ import SideBar from '../components/SideBar.vue'
 .client_content_wrapper {
     flex-grow: 2;
     background-color: var(--light);
+    padding: 50px 80px;
+    overflow-y: scroll;
 }
 </style>
