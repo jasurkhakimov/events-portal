@@ -94,7 +94,5 @@ export default {
 </script>
 
 <style>
-.content {
-  margin-top: 45px;
-}
+
 </style>

@@ -4,6 +4,7 @@
       :disabled="status === 0"
       depressed
       :class="['card_btn', statuses[status].class]"
+      :to="{ name: 'client-meeting', params: {id} }"
     >
       {{ statuses[status].text }}
     </v-btn>
@@ -15,6 +16,7 @@ export default {
   name: 'MeetingCardAction',
   props: {
     status: Number,
+    id: Number
   },
   data: () => ({
     statuses: {

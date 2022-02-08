@@ -35,6 +35,7 @@ export default {
     flex-grow: 2;
     background-color: var(--light);
     padding: 50px 80px;
+    padding-bottom: 30px;
     overflow-y: scroll;
 }
 </style>

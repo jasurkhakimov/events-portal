@@ -20,6 +20,11 @@ const routes = [
         name: 'client-settings',
         component: () => import('@/views/client/settings/SettingsPage.vue'),
       },
+      {
+        path: 'meeting/:id',
+        name: 'client-meeting',
+        component: () => import('@/views/client/meeting/MeetingPage.vue'),
+      },
     ]
   },
   {

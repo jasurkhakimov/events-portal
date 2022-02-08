@@ -9,7 +9,7 @@
   --lightred: #fff4f4;
   --radius: 8px;
   --radius-sm: 5px;
-  --radius-bg: 10px;
+  --radius-lg: 10px;
 }
 
 body::-webkit-scrollbar {
@@ -54,4 +54,8 @@ a {
   font-size: 24px;
   color: var(--darkgrey);
   margin: 24px;
+}
+
+.content {
+  margin-top: 45px;
 }

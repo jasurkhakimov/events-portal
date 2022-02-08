@@ -7,7 +7,7 @@
     </div> -->
     <meeting-card-text :text="item.text"></meeting-card-text>
     <meeting-card-info :info="item.info"></meeting-card-info>
-    <meeting-card-action :status="item.status"></meeting-card-action>
+    <meeting-card-action :id="item.id" :status="item.status"></meeting-card-action>
   </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
   align-items: center;
   background-color: #f5f6fa;
   margin-bottom: 18px;
-  border-radius: var(--radius-bg);
+  border-radius: var(--radius-lg);
   padding: 30px 40px;
 }
 
