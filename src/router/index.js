@@ -8,7 +8,7 @@ const routes = [
     path: '/',
     name: 'client-base',
     component: () => import('@/views/client/layouts/BaseLayout.vue'),
-    redirect: {name: 'client-main'},
+    redirect: { name: 'client-main' },
     children: [
       {
         path: 'main',
@@ -28,16 +28,27 @@ const routes = [
     ]
   },
   {
+    path: '/auth/admin',
+    name: 'admin-auth',
+    component: () => import('@/views/admin/auth/AuthPage.vue'),
+  },
+  {
+    path: '/auth/',
+    name: 'client-auth',
+    component: () => import('@/views/client/auth/AuthPage.vue'),
+  },
+  {
     path: '/admin',
     name: 'admin-base',
     component: () => import('@/views/admin/layouts/BaseLayout.vue'),
-    redirect: {name: 'admin-users'},
+    redirect: { name: 'admin-auth' },
     children: [
       {
         path: 'admin-users',
         name: 'admin-users',
         component: () => import('@/views/admin/users/UsersPage.vue'),
       },
+      
       {
         path: 'admin-groups',
         name: 'admin-groups',
@@ -62,7 +73,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '@/views/test/ExampleOnVuex.vue')
-  }
+  },
 ];
 
 const router = new VueRouter({

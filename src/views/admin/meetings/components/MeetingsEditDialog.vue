@@ -78,7 +78,6 @@
             item-value="id"
             item-text="name"
             multiple
-            :rules="[rules.required]"
             class="c-field"
             :disabled="item.status > 1"
           ></v-autocomplete>
@@ -93,7 +92,6 @@
             item-value="id"
             item-text="name"
             multiple
-            :rules="[rules.required]"
             class="c-field"
           ></v-autocomplete>
         </v-form>

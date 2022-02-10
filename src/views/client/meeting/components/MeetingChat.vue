@@ -54,36 +54,6 @@ export default {
         date: new Date(),
         author: 'Mark Avreliy',
       },
-      {
-        text: 'asdasd',
-        date: new Date(),
-        author: 'Mark Avreliy',
-      },
-      {
-        text: 'asdasd',
-        date: new Date(),
-        author: 'Mark Avreliy',
-      },
-      {
-        text: 'asdasd',
-        date: new Date(),
-        author: 'Mark Avreliy',
-      },
-      {
-        text: 'asdasd',
-        date: new Date(),
-        author: 'Mark Avreliy',
-      },
-      {
-        text: 'asdasd',
-        date: new Date(),
-        author: 'Mark Avreliy',
-      },
-      {
-        text: 'asdasd',
-        date: new Date(),
-        author: 'Mark Avreliy',
-      },
     ],
   }),
   methods: {

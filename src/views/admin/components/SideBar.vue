@@ -42,9 +42,7 @@ export default {
 .sidebar_logo {
     margin-top: 80px;
 }
-.logo {
-    width: 178px;
-}
+
 
 .sidebar_links {
     display: flex;

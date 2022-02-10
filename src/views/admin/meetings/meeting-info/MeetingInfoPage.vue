@@ -24,6 +24,16 @@
           :item="meeting"
           @update="update"
         ></meeting-info-actions>
+        <div class="action">
+          <v-btn @click="update()" class="c-btn" color="var(--blue)" dark depressed>
+            <span>
+              Сохранить
+            </span>
+            <v-icon small class="ml-2">
+              mdi-content-save
+            </v-icon>
+          </v-btn>
+        </div>
       </v-col>
     </div>
   </div>
@@ -130,7 +140,7 @@ export default {
     },
 
     // SETTERS
-    async update(meeting) {
+    async update(meeting=this.meeting) {
       try {
         const {
           data: { data, success, message },
@@ -160,4 +170,10 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+  .action {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+  }
+</style>

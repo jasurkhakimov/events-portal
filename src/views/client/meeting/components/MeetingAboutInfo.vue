@@ -2,15 +2,17 @@
   <meeting-info-block>
     <div class="meeting_info_item">
       <span>Дата:</span>
-      <span>20.12.2021</span>
+      <span>{{ date | format_date(' HH:mm - DD/MM/YYYY') }}</span>
     </div>
-    <div class="meeting_info_item">
+    <div v-if="place" class="meeting_info_item">
       <span>Место:</span>
-      <span>IPAK YULI BANK</span>
+      <span>{{ place }}</span>
     </div>
-    <div class="meeting_info_item">
+    <div v-if="link" class="meeting_info_item">
       <span>Zoom:</span>
       <v-btn
+        @click="go_to(link)"
+        target="_blank"
         depressed
         dark
         rounded
@@ -26,9 +28,23 @@
 </template>
 
 <script>
+import { format_date } from '@/utils/time'
 import MeetingInfoBlock from './MeetingInfoBlock.vue'
 export default {
+  props: {
+    date: String,
+    place: String,
+    link: String
+  },
   components: { MeetingInfoBlock },
+  methods: {
+    go_to(link) {
+      window.open(link, '_blank');
+    }
+  },
+  filters: {
+    format_date
+  }
 }
 </script>
 

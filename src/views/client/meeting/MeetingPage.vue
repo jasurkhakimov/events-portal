@@ -2,15 +2,23 @@
   <div>
     <div class="meeting content" ref="container">
       <div class="meeting_main">
-        <meeting-header></meeting-header>
+        <meeting-header 
+          :desc="meeting.desc"
+          :title="meeting.name"
+          :subject="meeting.subject"
+        ></meeting-header>
         <meeting-chat @scrollToEnd="scrollToEnd"></meeting-chat>
       </div>
       <div class="meeting_side">
-          <div class="sticky">
-            <meeting-about-info></meeting-about-info>
-            <meeting-participants></meeting-participants>
-            <meeting-docs></meeting-docs>
-          </div>
+        <div class="sticky">
+          <meeting-about-info 
+            :date="meeting.date"
+            :link="meeting.link"
+            :place="meeting.place"
+          ></meeting-about-info>
+          <meeting-participants></meeting-participants>
+          <meeting-docs></meeting-docs>
+        </div>
       </div>
     </div>
   </div>
@@ -43,26 +51,43 @@ export default {
       'purple',
       'cyan',
     ],
+    meeting: {
+      status: 0
+    },
+    url: 'events'
   }),
   mounted() {
     this.scrollToEnd();
+    this.get_meeting();
   },
   methods: {
     scrollToEnd() {
-      //   var container = this.$el.querySelector('#container')
-      //   console.log(container.scrollHeight)
-      //   container.scrollTop = container.scrollHeight
       const el = this.$refs.container
       console.log(el)
 
       if (el) {
-        // Use el.scrollIntoView() to instantly scroll to the element
         this.$nextTick(() => {
           el.scrollIntoView({
             block: 'end',
             behavior: 'smooth',
           })
         })
+      }
+    },
+
+    // API CALLS
+    async get_meeting() {
+      try {
+        const {
+          data: { data, success, message },
+        } = await this.$http.get(`/${this.url}/${this.$route.params.id}`)
+        if (success) {
+          this.meeting = data
+        } else {
+          console.log(message)
+        }
+      } catch (err) {
+        console.log(err)
       }
     },
   },
@@ -83,12 +108,13 @@ export default {
 
 .meeting_side {
   flex-shrink: 1;
-  min-width: 290px;
+  max-width: 290px;
+  width: 100%;
 }
 
 .sticky {
-    position: sticky;
-    top: 10px;
-    z-index: 100;
+  position: sticky;
+  top: 10px;
+  z-index: 100;
 }
 </style>
