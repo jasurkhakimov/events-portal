@@ -28,6 +28,34 @@ const routes = [
     ]
   },
   {
+    path: '/admin',
+    name: 'admin-base',
+    component: () => import('@/views/admin/layouts/BaseLayout.vue'),
+    redirect: {name: 'admin-users'},
+    children: [
+      {
+        path: 'admin-users',
+        name: 'admin-users',
+        component: () => import('@/views/admin/users/UsersPage.vue'),
+      },
+      {
+        path: 'admin-groups',
+        name: 'admin-groups',
+        component: () => import('@/views/admin/groups/GroupsPage.vue'),
+      },
+      {
+        path: 'admin-meetings',
+        name: 'admin-meetings',
+        component: () => import('@/views/admin/meetings/MeetingsPage.vue'),
+      },
+      {
+        path: 'admin-meetings/:id',
+        name: 'admin-meetings-info',
+        component: () => import('@/views/admin/meetings/meeting-info/MeetingInfoPage.vue'),
+      },
+    ]
+  },
+  {
     path: '/vuex-test',
     name: 'vuex-test',
     // route level code-splitting

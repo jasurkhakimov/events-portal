@@ -3,7 +3,7 @@
         <v-snackbar
             :color="alert.color"
             top
-            right
+            center
             v-model="alert.status"
             :timeout="timeout"
         >

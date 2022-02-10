@@ -24,6 +24,34 @@ a {
   background-color: var(--grey);
 }
 
+.c-field .v-input__slot {
+  background-color: var(--lightgrey) !important;
+  border-radius: var(--radius);
+
+  & fieldset {
+    border-color: var(--lightgrey) !important;
+    color: var(--lightgrey);
+
+    &:focus {
+      border-color: var(--blue) !important;
+    }
+  }
+}
+
+.c-field.v-input--is-focused label {
+  color: var(--blue) !important;
+}
+
+.v-text-field--outlined.v-input--is-focused fieldset {
+  border-color: var(--blue) !important;
+}
+
+// Data table
+.c-data-table {
+  border: 1px solid var(--lightgrey);
+  border-radius: var(--radius) !important;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -58,4 +86,23 @@ a {
 
 .content {
   margin-top: 45px;
+}
+
+.table_top {
+  display: flex;
+  padding: 12px;
+  justify-content: space-between;
+}
+
+.c-btn {
+  text-transform: lowercase;
+  border-radius: var(--radius);
+  letter-spacing: normal;
+  font-weight: normal;
+}
+
+.c_border {
+  box-shadow: none!important;
+  border-radius: var(--radius)!important;
+  border: 2px solid var(--lightgrey)!important;
 }

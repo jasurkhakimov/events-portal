@@ -7,8 +7,13 @@ import '@babel/polyfill'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@mdi/font/css/materialdesignicons.css'
 import '@/assets/styles/main.scss'
+import axios from 'axios';
 
 Vue.config.productionTip = false
+
+axios.defaults.baseURL = process.env.VUE_APP_BASE_URL;
+Vue.prototype.$http = axios;
+
 
 new Vue({
   router,

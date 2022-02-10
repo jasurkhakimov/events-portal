@@ -9,5 +9,7 @@ module.exports = {
                 '@': path.resolve('src'),
             }
         },
-    }
+
+
+    },
 }
