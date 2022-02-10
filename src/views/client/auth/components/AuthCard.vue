@@ -39,8 +39,8 @@ export default {
   data: () => ({
     valid: false,
     user: {
-      email: '',
-      password: '',
+      email: 'user@user.com',
+      password: '123456',
     },
     show: false,
     rules,
@@ -51,6 +51,7 @@ export default {
 
       if (this.valid) {
         console.log(this.user);
+        this.$router.push({name: 'client-main'})
       }
     }
   }

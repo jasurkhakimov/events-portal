@@ -64,7 +64,7 @@ export default {
     this.get_meeting()
     this.get_users()
     this.get_groups()
-    this.get_members()
+    
   },
   methods: {
     set_date(date) {
@@ -90,6 +90,8 @@ export default {
         }
       } catch (err) {
         console.log(err)
+      } finally {
+        this.get_members()
       }
     },
 
@@ -161,9 +163,7 @@ export default {
           text: 'Произошла ошибка!',
         })
       } finally {
-        if (this.edit_dialog) {
-          this.toggle_edit_dialog()
-        }
+        this.get_members();
       }
     },
   },

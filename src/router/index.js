@@ -8,7 +8,7 @@ const routes = [
     path: '/',
     name: 'client-base',
     component: () => import('@/views/client/layouts/BaseLayout.vue'),
-    redirect: { name: 'client-main' },
+    redirect: { name: 'client-auth' },
     children: [
       {
         path: 'main',

@@ -7,7 +7,7 @@
       @edit_item="edit_item_dialog"
       @delete_item="delete_item_dialog"
       @reload="get_table"
-      :items="groups"
+      :items="groups_render"
       :loading="loading"
     ></groups-table>
     <groups-edit-dialog
@@ -158,10 +158,10 @@ export default {
         }
       } catch (err) {
         console.log(err)
-        this.setAlert({
-          color: 'var(--red)',
-          text: 'Произошла ошибка!',
-        })
+        // this.setAlert({
+        //   color: 'var(--red)',
+        //   text: 'Произошла ошибка!',
+        // })
       } finally {
         this.toggle_edit_dialog()
       }
@@ -182,6 +182,7 @@ export default {
             }
             return item
           })
+          console.log(data, this.groups);
         } else {
           console.log(message)
         }
@@ -225,6 +226,11 @@ export default {
       }
     },
   },
+  computed: {
+    groups_render() {
+      return this.groups;
+    }
+  }
 }
 </script>
 

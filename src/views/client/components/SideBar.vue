@@ -12,10 +12,10 @@
                 <v-icon size="20">mdi-home-variant-outline</v-icon>
                 <div>Главная</div>
             </router-link>
-            <router-link active-class="active" class="link" :to="{name: 'client-settings'}">
+            <!-- <router-link active-class="active" class="link" :to="{name: 'client-settings'}">
                 <v-icon size="20">mdi-cog</v-icon>
                 <div>Настройки</div>
-            </router-link>
+            </router-link> -->
         </div>
     </div>
 </template>

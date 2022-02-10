@@ -17,6 +17,7 @@
             :place="meeting.place"
           ></meeting-about-info>
           <meeting-participants></meeting-participants>
+          <meeting-observers :observers="observers"></meeting-observers>
           <meeting-docs></meeting-docs>
         </div>
       </div>
@@ -30,6 +31,7 @@ import MeetingChat from './components/MeetingChat.vue'
 import MeetingDocs from './components/MeetingDocs.vue'
 import MeetingHeader from './components/MeetingHeader.vue'
 import MeetingParticipants from './components/MeetingParticipants.vue'
+import MeetingObservers from './components/MeetingObservers.vue'
 export default {
   components: {
     MeetingHeader,
@@ -37,7 +39,8 @@ export default {
     MeetingAboutInfo,
     MeetingDocs,
     MeetingChat,
-  },
+    MeetingObservers
+},
   name: 'MeetingPage',
 
   data: () => ({
@@ -54,6 +57,8 @@ export default {
     meeting: {
       status: 0
     },
+    observers: [],
+
     url: 'events'
   }),
   mounted() {
@@ -82,7 +87,8 @@ export default {
           data: { data, success, message },
         } = await this.$http.get(`/${this.url}/${this.$route.params.id}`)
         if (success) {
-          this.meeting = data
+          this.meeting = data;
+          this.observers = data.members?.observers;
         } else {
           console.log(message)
         }

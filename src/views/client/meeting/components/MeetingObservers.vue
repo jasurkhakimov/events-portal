@@ -1,16 +1,16 @@
 <template>
   <meeting-info-block>
-    <div class="meeting_info_title">Группы</div>
+    <div class="meeting_info_title">Наблюдатели</div>
 
     <div class="meeting_info_participants">
       <v-chip
         class="participant_chip"
-        v-for="i in 7"
-        :key="i"
-        color="var(--green)"
+        v-for="(item, index) in observers"
+        :key="index"
+        color="var(--grey)"
         small
       >
-        John Doe
+        {{ item.name }}
       </v-chip>
     </div>
   </meeting-info-block>
@@ -20,7 +20,10 @@
 import MeetingInfoBlock from './MeetingInfoBlock.vue'
 export default {
   components: { MeetingInfoBlock },
-  name: 'MeetingParticipants',
+  props: {
+      observers: Array
+  },
+  name: 'MeetingObservers',
 }
 </script>
 
